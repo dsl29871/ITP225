@@ -1,0 +1,21 @@
+<?php
+// make choice and set to lowercase/trim
+$choice = strtolower(trim(readline("Choose hashing method: MD5 or SHA1: ")));
+
+// if choice is not MD5 or Sha1, then reprompt
+while ($choice != "sha1" && $choice != "md5") {
+    $choice = strtolower(trim(readline("Invalid entry. Please choose either 'MD5' or 'SHA1': ")));
+}
+
+// prompt for sentence entry
+$sentence = trim(readline("Enter string to hash: "));
+
+if ($choice == "md5") {
+    $hashedString = md5($sentence);
+} elseif ($choice == "sha1") {
+    $hashedString = sha1($sentence);
+}
+
+// echo hash value
+echo $hashedString;
+?>
